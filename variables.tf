@@ -33,20 +33,20 @@ EOT
     interval              = number
     name                  = string
     start_time            = string
-    activated             = optional(bool, true)
+    activated             = optional(bool) # Default: true
     additional_properties = optional(map(string))
     annotations           = optional(list(string))
     delay                 = optional(string)
     description           = optional(string)
     end_time              = optional(string)
-    max_concurrency       = optional(number, 50)
+    max_concurrency       = optional(number) # Default: 50
     pipeline = object({
       name       = string
       parameters = optional(map(string))
     })
     retry = optional(object({
       count    = number
-      interval = optional(number, 30)
+      interval = optional(number) # Default: 30
     }))
     trigger_dependency = optional(object({
       offset       = optional(string)
