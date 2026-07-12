@@ -28,7 +28,7 @@ resource "azurerm_data_factory_trigger_tumbling_window" "data_factory_trigger_tu
   }
 
   dynamic "trigger_dependency" {
-    for_each = each.value.trigger_dependency != null ? [each.value.trigger_dependency] : []
+    for_each = each.value.trigger_dependency != null ? each.value.trigger_dependency : []
     content {
       offset       = trigger_dependency.value.offset
       size         = trigger_dependency.value.size
