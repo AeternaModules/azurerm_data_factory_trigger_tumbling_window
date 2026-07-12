@@ -1,3 +1,7 @@
+output "data_factory_trigger_tumbling_windows_id" {
+  description = "Map of id values across all data_factory_trigger_tumbling_windows, keyed the same as var.data_factory_trigger_tumbling_windows"
+  value       = { for k, v in azurerm_data_factory_trigger_tumbling_window.data_factory_trigger_tumbling_windows : k => v.id }
+}
 output "data_factory_trigger_tumbling_windows_activated" {
   description = "Map of activated values across all data_factory_trigger_tumbling_windows, keyed the same as var.data_factory_trigger_tumbling_windows"
   value       = { for k, v in azurerm_data_factory_trigger_tumbling_window.data_factory_trigger_tumbling_windows : k => v.activated }
