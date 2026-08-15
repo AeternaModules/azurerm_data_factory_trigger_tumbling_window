@@ -48,11 +48,11 @@ output "data_factory_trigger_tumbling_windows_name" {
 }
 output "data_factory_trigger_tumbling_windows_pipeline" {
   description = "Map of pipeline values across all data_factory_trigger_tumbling_windows, keyed the same as var.data_factory_trigger_tumbling_windows"
-  value       = { for k, v in azurerm_data_factory_trigger_tumbling_window.data_factory_trigger_tumbling_windows : k => v.pipeline if v.pipeline != null && length(v.pipeline) > 0 }
+  value       = { for k, v in azurerm_data_factory_trigger_tumbling_window.data_factory_trigger_tumbling_windows : k => one(v.pipeline) if v.pipeline != null && length(v.pipeline) > 0 }
 }
 output "data_factory_trigger_tumbling_windows_retry" {
   description = "Map of retry values across all data_factory_trigger_tumbling_windows, keyed the same as var.data_factory_trigger_tumbling_windows"
-  value       = { for k, v in azurerm_data_factory_trigger_tumbling_window.data_factory_trigger_tumbling_windows : k => v.retry if v.retry != null && length(v.retry) > 0 }
+  value       = { for k, v in azurerm_data_factory_trigger_tumbling_window.data_factory_trigger_tumbling_windows : k => one(v.retry) if v.retry != null && length(v.retry) > 0 }
 }
 output "data_factory_trigger_tumbling_windows_start_time" {
   description = "Map of start_time values across all data_factory_trigger_tumbling_windows, keyed the same as var.data_factory_trigger_tumbling_windows"
